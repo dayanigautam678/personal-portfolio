@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gautam Dayani — B.Sc. Computer Science student and internship applicant from Surat, Gujarat.">
+  <title>Gautam Dayani | Portfolio</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: rgba(15, 29, 49, .88);
+      --panel-2: #10243a;
+      --text: #edf6ff;
+      --muted: #a8bbcf;
+      --cyan: #55e5f2;
+      --blue: #6d8cff;
+      --line: rgba(148, 180, 210, .18);
+      --shadow: 0 24px 70px rgba(0, 0, 0, .35);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      padding: 34px 18px;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(45, 112, 190, .22), transparent 32rem),
+        radial-gradient(circle at 88% 82%, rgba(27, 190, 205, .14), transparent 30rem),
+        var(--bg);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .page { width: min(100%, 960px); margin: auto; }
+    .toolbar { display: flex; justify-content: flex-end; margin-bottom: 14px; }
+    .theme-toggle {
+      border: 1px solid var(--line); background: var(--panel); color: var(--text);
+      border-radius: 999px; padding: 10px 15px; cursor: pointer; font-weight: 650;
+      transition: transform .2s, border-color .2s;
+    }
+    .theme-toggle:hover { transform: translateY(-2px); border-color: var(--cyan); }
+    .portfolio {
+      overflow: hidden; border: 1px solid var(--line); border-radius: 28px;
+      background: var(--panel); box-shadow: var(--shadow); backdrop-filter: blur(14px);
+    }
+    .hero {
+      position: relative; padding: 48px clamp(22px, 6vw, 64px) 42px;
+      background: linear-gradient(120deg, rgba(34, 77, 132, .95), rgba(10, 139, 157, .78));
+      isolation: isolate;
+    }
+    .hero::after {
+      content: ""; position: absolute; width: 280px; height: 280px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.16); right: -85px; top: -125px; z-index: -1;
+      box-shadow: 0 0 0 28px rgba(255,255,255,.035), 0 0 0 58px rgba(255,255,255,.025);
+    }
+    .hero-inner { display: flex; align-items: center; gap: 24px; }
+    .avatar {
+      flex: 0 0 104px; width: 104px; height: 104px; display: grid; place-items: center;
+      border-radius: 28px; border: 2px solid rgba(255,255,255,.55);
+      background: rgba(255,255,255,.15); color: white; font-size: 34px; font-weight: 850;
+      letter-spacing: -2px; box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    }
+    .eyebrow { color: #d5fbff; font-size: .76rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.1; margin: 7px 0 8px; letter-spacing: -.045em; }
+    .role { color: #e2faff; font-weight: 600; }
+    .location { color: #d4f4fa; font-size: .92rem; margin-top: 8px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 10px 15px; border-radius: 11px; text-decoration: none; font-size: .88rem;
+      font-weight: 750; border: 1px solid rgba(255,255,255,.35); transition: .2s;
+    }
+    .btn.primary { background: white; color: #0a3448; }
+    .btn.secondary { background: rgba(255,255,255,.1); color: white; }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.06); }
+    .content { padding: clamp(22px, 5vw, 48px); }
+    .section { margin-bottom: 34px; }
+    .section:last-child { margin-bottom: 0; }
+    .section-heading {
+      display: flex; align-items: center; gap: 11px; margin-bottom: 15px;
+      font-size: 1.12rem; letter-spacing: -.02em;
+    }
+    .section-heading::before {
+      content: ""; width: 4px; height: 22px; border-radius: 5px;
+      background: linear-gradient(var(--cyan), var(--blue));
+    }
+    .about {
+      color: var(--muted); font-size: .98rem; max-width: 760px;
+    }
+    .info-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 13px; }
+    .info-card, .skill-card, .project-card, .interest-card {
+      border: 1px solid var(--line); background: var(--panel-2); border-radius: 15px;
+    }
+    .info-card { padding: 14px 16px; min-width: 0; }
+    .info-label { display: block; color: var(--muted); font-size: .75rem; margin-bottom: 3px; }
+    .info-value { font-size: .9rem; font-weight: 650; overflow-wrap: anywhere; }
+    .info-value a { text-decoration: none; }
+    .info-value a:hover { color: var(--cyan); }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill {
+      padding: 8px 13px; border-radius: 999px; border: 1px solid rgba(85,229,242,.22);
+      background: rgba(85,229,242,.08); color: #b9f7fb; font-size: .84rem; font-weight: 650;
+    }
+    .education { padding: 19px; border-left: 3px solid var(--cyan); }
+    .education h3 { font-size: 1rem; margin-bottom: 4px; }
+    .education p { color: var(--muted); font-size: .9rem; }
+    .education .meta { color: var(--cyan); font-size: .82rem; font-weight: 700; margin-top: 7px; }
+    .interest-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+    .interest-card { padding: 15px; text-align: center; font-size: .88rem; font-weight: 650; }
+    .interest-icon { display: block; font-size: 1.35rem; margin-bottom: 5px; }
+    .footer {
+      padding: 19px 24px; border-top: 1px solid var(--line); text-align: center;
+      color: var(--muted); font-size: .8rem;
+    }
+    .light {
+      --bg: #edf5fb; --panel: rgba(255,255,255,.94); --panel-2: #f4f8fc;
+      --text: #10253b; --muted: #53677d; --line: rgba(43,77,108,.17);
+      --shadow: 0 24px 70px rgba(25,60,90,.13);
+    }
+    .light .skill { color: #087c8a; background: rgba(8,150,166,.08); }
+    .light .info-value a:hover { color: #087c8a; }
+    @media (max-width: 620px) {
+      body { padding: 16px 10px; }
+      .hero { padding: 32px 22px; }
+      .hero-inner { align-items: flex-start; gap: 16px; }
+      .avatar { flex-basis: 76px; width: 76px; height: 76px; border-radius: 22px; font-size: 27px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .interest-grid { grid-template-columns: 1fr; }
+      .hero-actions .btn { flex: 1; }
+    }
+    @media (max-width: 390px) {
+      .hero-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="toolbar">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">☀️ Light mode</button>
+    </div>
+
+    <article class="portfolio">
+      <header class="hero">
+        <div class="hero-inner">
+          <div class="avatar" aria-label="Gautam Dayani initials">GD</div>
+          <div>
+            <div class="eyebrow">Personal Portfolio</div>
+            <h1>Gautam Dayani</h1>
+            <p class="role">B.Sc. Computer Science Student · Internship Applicant</p>
+            <p class="location">📍 Surat, Gujarat, India</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="mailto:dayanigautam678@gmail.com">✉ Contact Me</a>
+              <a class="btn secondary" href="https://github.com/dayanigautam678" target="_blank" rel="noopener noreferrer">↗ GitHub Profile</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="section">
+          <h2 class="section-heading">About Me</h2>
+          <p class="about">
+            I am a motivated B.Sc. Computer Science student currently pursuing
+            the third year (Semester V). I am eager to learn new technologies,
+            improve my programming skills, and gain practical experience through
+            an internship. I enjoy building my technical foundation and applying
+            what I learn to practical tasks.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-heading">Technical Skills</h2>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">Python</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Java</span>
+            <span class="skill">C++</span>
+            <span class="skill">C#</span>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-heading">Education</h2>
+          <div class="info-grid">
+            <div class="info-card education">
+              <h3>Atmanand Saraswati Science College</h3>
+              <p>Surat, Gujarat</p>
+              <p>B.Sc. Computer Science</p>
+              <p class="meta">Third Year · Semester V · Current CGPA: 6</p>
+            </div>
+            <div class="info-card">
+              <span class="info-label">Class XII — Science</span>
+              <span class="info-value">47%</span>
+              <span class="info-label" style="margin-top:12px">Class X</span>
+              <span class="info-value">68%</span>
+            </div>
+          </div>
+        </section>
+
+
+        <section class="section">
+          <h2 class="section-heading">Projects</h2>
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>Smart Diet Website</h3>
+              <p class="about">A web-based project focused on diet-related information and suggestions.</p>
+            </div>
+            <div class="info-card">
+              <h3>Virus Detector</h3>
+              <p class="about">A Python and machine-learning project that analyzes file features for classification.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-heading">Career Interests</h2>
+          <div class="interest-grid">
+            <div class="interest-card"><span class="interest-icon">🛡️</span>Ethical Hacking</div>
+            <div class="interest-card"><span class="interest-icon">🔐</span>Cyber Security</div>
+            <div class="interest-card"><span class="interest-icon">🗄️</span>Database Management</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-heading">Contact Information</h2>
+          <div class="info-grid">
+            <div class="info-card">
+              <span class="info-label">Email</span>
+              <span class="info-value"><a href="mailto:dayanigautam678@gmail.com">dayanigautam678@gmail.com</a></span>
+            </div>
+            <div class="info-card">
+              <span class="info-label">GitHub</span>
+              <span class="info-value"><a href="https://github.com/dayanigautam678" target="_blank" rel="noopener noreferrer">github.com/dayanigautam678</a></span>
+            </div>
+            <div class="info-card">
+              <span class="info-label">LinkedIn</span>
+              <span class="info-value"><a href="https://linkedin.com/in/gautam-dayani-7ab808445" target="_blank" rel="noopener noreferrer">View LinkedIn Profile</a></span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> Gautam Dayani</span> · Built with HTML, CSS &amp; JavaScript
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const year = document.getElementById("year");
+
+    year.textContent = new Date().getFullYear();
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      const isLight = document.body.classList.contains("light");
+      themeToggle.textContent = isLight ? "🌙 Dark mode" : "☀️ Light mode";
+      themeToggle.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+    });
+  </script>
+</body>
+</html>
