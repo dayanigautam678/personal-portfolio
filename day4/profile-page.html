@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Personal Profile</title>
+
+    <style>
+        body {
+            background-color: #eaf2f8;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .profile {
+            background-color: white;
+            width: 350px;
+            margin: 40px auto;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #234b70;
+            font-size: 28px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .skills {
+            background-color: #eef5fb;
+            padding: 10px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #234b70;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #16334e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile">
+
+        <h1>Gautam Dayani</h1>
+
+        <p>B.Sc. Computer Science Student</p>
+
+        <h3>About Me</h3>
+
+        <p>
+            Hello! I am Gautam.
+            I am currently studying Computer Science.
+            I enjoy learning programming and creating websites.
+        </p>
+
+        <h3>My Skills</h3>
+
+        <div class="skills">
+            HTML | CSS | Python(basic) | Java(basic)| C++ (basic)
+        </div>
+
+        <button onclick="showMessage()">Click Me</button>
+
+    </div>
+
+    <script>
+        function showMessage() {
+            alert("Hello! Thanks for visiting my profile.");
+        }
+    </script>
+
+</body>
+</html>
