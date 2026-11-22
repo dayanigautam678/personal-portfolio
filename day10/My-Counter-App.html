@@ -1,1 +1,158 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Counter App</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 25px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #222;
+            margin-bottom: 25px;
+        }
+
+        #counter {
+            font-size: 75px;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        button {
+            border: none;
+            padding: 13px 20px;
+            border-radius: 8px;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            opacity: 0.85;
+        }
+
+        .increase {
+            background: #28a745;
+        }
+
+        .decrease {
+            background: #dc3545;
+        }
+
+        .reset {
+            background: #555;
+        }
+
+        .increaseFive {
+            background: #007bff;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 18px;
+            }
+
+            #counter {
+                font-size: 60px;
+            }
+
+            button {
+                flex: 1 1 40%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>My Counter App</h1>
+
+        <div id="counter">0</div>
+
+        <div class="buttons">
+            <button class="increase" id="increase">Increase</button>
+            <button class="decrease" id="decrease">Decrease</button>
+            <button class="reset" id="reset">Reset</button>
+            <button class="increaseFive" id="increaseFive">+5</button>
+        </div>
+    </div>
+
+    <script>
+        let count = 0;
+
+        const counterDisplay = document.getElementById("counter");
+
+        function updateCounter() {
+            counterDisplay.textContent = count;
+
+            if (count > 0) {
+                counterDisplay.style.color = "green";
+            } else if (count < 0) {
+                counterDisplay.style.color = "red";
+            } else {
+                counterDisplay.style.color = "#555";
+            }
+        }
+
+        document.getElementById("increase").addEventListener("click", function() {
+            count++;
+            updateCounter();
+        });
+
+        document.getElementById("decrease").addEventListener("click", function() {
+            if (count > 0) {
+                count--;
+                updateCounter();
+            }
+        });
+
+        document.getElementById("reset").addEventListener("click", function() {
+            count = 0;
+            updateCounter();
+        });
+
+        document.getElementById("increaseFive").addEventListener("click", function() {
+            count += 5;
+            updateCounter();
+        });
+    </script>
+
+</body>
+</html>
