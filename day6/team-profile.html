@@ -1,1 +1,195 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Profile Cards</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #1e293b;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            padding: 25px;
+            margin: 10px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .skills {
+            color: #2563eb;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        .details {
+            display: none;
+            margin-top: 15px;
+            color: #334155;
+        }
+
+        .details.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Our Team Profiles</h1>
+
+    <div class="profile-container">
+
+        <div class="card">
+            <img src="john snow.webp"
+                 alt="john snow profile">
+
+            <h2>John Snow</h2>
+
+            <p>Frontend Developer passionate about creating websites.</p>
+
+            <div class="skills">
+                HTML | CSS | JavaScript
+            </div>
+
+            <button onclick="showProfile(1)">View Profile</button>
+
+            <div class="details" id="details1">
+                <p>John Snow has experience in responsive web development.</p>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="daenerys.webp"
+                 alt="daenerys Profile">
+
+            <h2>Daenerys </h2>
+
+            <p>UI Designer interested in creative digital experiences.</p>
+
+            <div class="skills">
+                Figma | CSS | Design
+            </div>
+
+            <button onclick="showProfile(2)">View Profile</button>
+
+            <div class="details" id="details2">
+                <p>Daenerys  specializes in user-friendly interface design.</p>
+            </div>
+        </div>
+
+        
+        <div class="card">
+            <img src="sansa stark.webp"
+                 alt="sansa Profile">
+
+            <h2>Sansa Stark</h2>
+
+            <p>JavaScript Developer interested in web applications.</p>
+
+            <div class="skills">
+                JavaScript | Python | HTML
+            </div>
+
+            <button onclick="showProfile(3)">View Profile</button>
+
+            <div class="details" id="details3">
+                <p>Sansa Stark enjoys building interactive web applications.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        function showProfile(number) {
+
+            let details = document.getElementById("details" + number);
+
+            details.classList.toggle("show");
+
+        }
+
+    </script>
+
+</body>
+</html>
