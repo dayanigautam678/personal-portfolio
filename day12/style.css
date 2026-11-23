@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 20px;
+}
+
+.game-container {
+    background: white;
+    width: 100%;
+    max-width: 430px;
+    padding: 35px 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.instruction {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-box {
+    background: #f0f2ff;
+    padding: 15px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.info-box span {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.info-box strong {
+    font-size: 25px;
+    color: #5b5bd6;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+input:focus {
+    border-color: #5b5bd6;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #5b5bd6;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background: #3939a8;
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#message {
+    margin-top: 15px;
+    min-height: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+#message.success {
+    color: green;
+}
+
+#message.error {
+    color: #dc3545;
+}
+
+#playAgainBtn {
+    background: #28a745;
+    margin-top: 15px;
+}
+
+#playAgainBtn:hover {
+    background: #1e7e34;
+}
+
+#playAgainBtn[hidden] {
+    display: none;
+}
+
+.win-effect {
+    animation: celebrate 0.5s ease-in-out 3;
+}
+
+@keyframes celebrate {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 28px 18px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
