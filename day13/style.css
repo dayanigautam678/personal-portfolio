@@ -1,0 +1,163 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 35px 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 28px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: bold;
+    color: #333;
+}
+
+.password-box {
+    display: flex;
+    gap: 8px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #667eea;
+}
+
+.password-box button {
+    padding: 0 15px;
+    border: none;
+    border-radius: 8px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+}
+
+button {
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.strength-bar {
+    height: 9px;
+    width: 100%;
+    background: #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+#strengthIndicator {
+    width: 0%;
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.4s ease, background-color 0.4s ease;
+}
+
+#strengthMessage {
+    text-align: center;
+    margin: 13px 0 22px;
+    font-weight: bold;
+    color: #777;
+}
+
+.requirements {
+    background: #f7f7ff;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 22px;
+}
+
+.requirements h3 {
+    color: #333;
+    font-size: 17px;
+    margin-bottom: 13px;
+}
+
+.requirements p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #dc3545;
+}
+
+.requirements p.valid {
+    color: #28a745;
+}
+
+#matchMessage {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: -8px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.reset {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #dc3545;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.reset:hover {
+    background: #b52a37;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 28px 18px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+}
