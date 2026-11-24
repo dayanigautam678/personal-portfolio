@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simple Calculator</title>
+<title>MintCalc - Calculator</title>
 
 <style>
 *{
@@ -14,8 +14,8 @@
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#141e30,#243b55);
+    font-family:'Trebuchet MS',Arial,sans-serif;
+    background:#e8f1e9;
     min-height:100vh;
     display:flex;
     justify-content:center;
@@ -25,32 +25,46 @@ body{
 
 .calculator{
     width:100%;
-    max-width:350px;
-    background:#1d2635;
-    padding:25px;
-    border-radius:22px;
-    box-shadow:0 15px 40px #0008;
+    max-width:370px;
+    background:#ffffff;
+    padding:28px;
+    border-radius:30px;
+    box-shadow:0 20px 50px #315b4320;
+    border:1px solid #dce9dd;
 }
 
-h2{
-    color:white;
-    text-align:center;
-    margin-bottom:22px;
-    letter-spacing:2px;
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h2{
+    color:#24543b;
+    font-size:23px;
+}
+
+.header span{
+    background:#dff3e4;
+    color:#367b51;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:12px;
 }
 
 #display{
     width:100%;
-    height:80px;
-    background:#101722;
+    height:100px;
     border:none;
-    border-radius:12px;
-    color:white;
-    font-size:32px;
-    text-align:right;
-    padding:15px;
-    margin-bottom:20px;
     outline:none;
+    background:#edf5ee;
+    border-radius:20px;
+    padding:20px;
+    text-align:right;
+    font-size:35px;
+    color:#24543b;
+    margin-bottom:24px;
 }
 
 .buttons{
@@ -60,49 +74,88 @@ h2{
 }
 
 button{
-    height:62px;
+    height:65px;
     border:none;
-    border-radius:12px;
-    background:#34445b;
-    color:white;
-    font-size:22px;
+    border-radius:18px;
+    background:#edf4ee;
+    color:#315c40;
+    font-size:21px;
+    font-weight:600;
     cursor:pointer;
     transition:.2s;
 }
 
 button:hover{
-    background:#526782;
-    transform:scale(1.04);
+    background:#d5e9d9;
+    transform:translateY(-3px);
+}
+
+button:active{
+    transform:scale(.94);
 }
 
 .operator{
-    background:#f39c35;
+    background:#d9eee0;
+    color:#287447;
 }
 
 .operator:hover{
-    background:#d9821f;
+    background:#bde2c8;
 }
 
 .clear{
-    background:#e74c3c;
+    background:#ffe5dd;
+    color:#d45c43;
 }
 
 .clear:hover{
-    background:#c0392b;
+    background:#ffd1c4;
+}
+
+.backspace{
+    background:#fff0d7;
+    color:#b17a24;
+}
+
+.backspace:hover{
+    background:#ffe2ad;
 }
 
 .equal{
-    background:#20a779;
+    background:#317c51;
+    color:white;
     grid-row:span 2;
-    height:136px;
+    height:142px;
+    font-size:27px;
 }
 
 .equal:hover{
-    background:#16865f;
+    background:#245f3d;
 }
 
 .zero{
     grid-column:span 2;
+}
+
+.footer{
+    text-align:center;
+    color:#8a9e8e;
+    font-size:12px;
+    margin-top:22px;
+}
+
+@media(max-width:400px){
+    .calculator{
+        padding:20px;
+    }
+
+    button{
+        height:58px;
+    }
+
+    .equal{
+        height:128px;
+    }
 }
 </style>
 </head>
@@ -111,14 +164,17 @@ button:hover{
 
 <div class="calculator">
 
-<h2>CALCULATOR</h2>
+<div class="header">
+<h2>MintCalc</h2>
+<span>SMART CALCULATOR</span>
+</div>
 
 <input type="text" id="display" value="0" readonly>
 
 <div class="buttons">
 
-<button class="clear" onclick="clearDisplay()">C</button>
-<button onclick="deleteLast()">⌫</button>
+<button class="clear" onclick="clearDisplay()">AC</button>
+<button class="backspace" onclick="deleteLast()">⌫</button>
 <button class="operator" onclick="chooseOperator('/')">÷</button>
 <button class="operator" onclick="chooseOperator('*')">×</button>
 
@@ -141,6 +197,11 @@ button:hover{
 <button onclick="appendDecimal()">.</button>
 
 </div>
+
+<div class="footer">
+<p>Simple calculations, smarter results.</p>
+</div>
+
 </div>
 
 <script>
@@ -164,8 +225,7 @@ function appendNumber(number){
     if(resetScreen){
         currentInput=number;
         resetScreen=false;
-    }
-    else{
+    }else{
         currentInput=currentInput==="0"?number:currentInput+number;
     }
 
@@ -181,8 +241,7 @@ function appendDecimal(){
     if(resetScreen){
         currentInput="0.";
         resetScreen=false;
-    }
-    else if(!currentInput.includes(".")){
+    }else if(!currentInput.includes(".")){
         currentInput+=".";
     }
 
@@ -245,6 +304,7 @@ function calculate(){
 }
 
 function clearDisplay(){
+
     currentInput="0";
     previousInput="";
     operator=null;
@@ -262,8 +322,7 @@ function deleteLast(){
     if(resetScreen){
         currentInput="0";
         resetScreen=false;
-    }
-    else{
+    }else{
         currentInput=currentInput.length>1?
         currentInput.slice(0,-1):"0";
     }
