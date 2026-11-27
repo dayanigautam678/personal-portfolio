@@ -1,5 +1,5 @@
 
-const API_KEY = "https://api.weatherapi.com/v1/current.json?key=efed3922047746069d5144702262711&q=Surat";
+const API_KEY = "efed3922047746069d5144702262711";
 
 const cityInput = document.getElementById("cityInput");
 const error = document.getElementById("error");
@@ -23,7 +23,6 @@ async function loadWeather(city) {
         const url = `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${encodeURIComponent(city)}&days=3&aqi=no&alerts=no`;
 
         const response = await fetch(url);
-
         const data = await response.json();
 
         if (!response.ok) {
@@ -64,6 +63,7 @@ async function loadWeather(city) {
 
             const icon = document.createElement("img");
             icon.src = "https:" + day.day.condition.icon;
+            icon.alt = day.day.condition.text;
 
             const temp = document.createElement("h3");
             temp.textContent = Math.round(day.day.maxtemp_c) + "°";
