@@ -1,5 +1,5 @@
 
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "efed3922047746069d5144702262711";
 
 const cityInput = document.getElementById("cityInput");
 const error = document.getElementById("error");
@@ -29,14 +29,12 @@ async function loadWeather(city) {
             throw new Error(data.error?.message || "Unable to fetch weather.");
         }
 
-        // City information
         document.getElementById("city").textContent =
             data.location.name + ", " + data.location.country;
 
         document.getElementById("date").textContent =
             "Local Time: " + data.location.localtime;
 
-        // Current weather
         document.getElementById("temperature").textContent =
             Math.round(data.current.temp_c) + "°C";
 
@@ -52,7 +50,6 @@ async function loadWeather(city) {
         document.getElementById("wind").textContent =
             data.current.wind_kph + " km/h";
 
-        // Three day forecast
         const forecastContainer = document.getElementById("forecast");
         forecastContainer.replaceChildren();
 
@@ -87,7 +84,7 @@ async function loadWeather(city) {
     }
 }
 
-// Search using Enter key
+
 cityInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         getWeather();
